@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// main function is the first thing that run when we start the debugging process
 void main() {
   runApp(const MyApp());
 }
@@ -7,67 +8,43 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // remove debug banner
       debugShowCheckedModeBanner: false,
-      title: "Welcome to flutter",
-      theme: ThemeData(
-        primarySwatch: Colors.lime,
-      ),
-      home: const MyHomePage(
-        title: "My first flutter app",
-      ),
-    );
-  }
-}
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter--;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Click the plus button to add the number value',
+      // scaffold its like the canvas on javascript
+      home: Scaffold(
+        // navbar -> AppBar
+        appBar: AppBar(
+          //Navbar title
+          title: const Text('Navbar title'),
+        ),
+        // Body
+        body: const Text('Body text'),
+        bottomNavigationBar: BottomNavigationBar(
+          // ignore: prefer_const_literals_to_create_immutables
+          items: [
+            const BottomNavigationBarItem(
+              label: 'Home',
+              icon: Icon(Icons.home),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            const BottomNavigationBarItem(
+              label: 'Settings',
+              icon: Icon(Icons.settings),
             ),
+            const BottomNavigationBarItem(
+                label: 'Favorite',
+                icon: Icon(
+                  Icons.favorite,
+                  color: Colors.pink,
+                  size: 24,
+                  semanticLabel: 'Favorite',
+                ))
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(
-          Icons.add,
-        ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
