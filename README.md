@@ -23,6 +23,7 @@ $ flutter emulators --launch Pixel_3a_API_33_x86_64
 ```console
 $ flutter run
 ```
+
 - Reload emulator and see changes from console
 ```console
 type the r key to reload
