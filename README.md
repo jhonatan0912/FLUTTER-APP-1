@@ -1,16 +1,29 @@
-# flutter_application_1
+# Flutter commands
 
-A new Flutter project.
+- Create a fluter application
+```console
+$ flutter create my_app
+```
 
-## Getting Started
+- List emulators
+```console
+$ flutter emulators
+```
 
-This project is a starting point for a Flutter application.
+- Run project with a specified emulator
+```console
+$ flutter emulators --launch [name emulator]
 
-A few resources to get you started if this is your first Flutter project:
+Example:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+$ flutter emulators --launch Pixel_3a_API_33_x86_64
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Compile the project
+```console
+$ flutter run
+```
+- Reload emulator and see changes from console
+```console
+type the r key to reload
+```
