@@ -2,11 +2,18 @@ import 'package:flutter/material.dart';
 
 // main function is the first thing that run when we start the debugging process
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  String buttonName = 'Click';
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +29,16 @@ class MyApp extends StatelessWidget {
           title: const Text('Navbar title'),
         ),
         // Body
-        body: const Text('Body text'),
+        body: Center(
+          child: ElevatedButton(
+            onPressed: () {
+              setState(() {
+                buttonName = 'Pressed';
+              });
+            },
+            child: Text(buttonName),
+          ),
+        ),
         bottomNavigationBar: BottomNavigationBar(
           // ignore: prefer_const_literals_to_create_immutables
           items: [
