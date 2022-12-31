@@ -31,13 +31,27 @@ class _MyAppState extends State<MyApp> {
         ),
         // Body
         body: Center(
-          child: ElevatedButton(
-            onPressed: () {
-              setState(() {
-                buttonName = 'Pressed';
-              });
-            },
-            child: Text(buttonName),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    buttonName = 'Pressed';
+                  });
+                },
+                child: Text(buttonName),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    buttonName = 'Pressed';
+                  });
+                },
+                child: Text(buttonName),
+              )
+            ],
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
