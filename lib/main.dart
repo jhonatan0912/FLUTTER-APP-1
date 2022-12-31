@@ -31,27 +31,37 @@ class _MyAppState extends State<MyApp> {
         ),
         // Body
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    buttonName = 'Pressed';
-                  });
-                },
-                child: Text(buttonName),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    buttonName = 'Pressed';
-                  });
-                },
-                child: Text(buttonName),
-              )
-            ],
+          child: SizedBox(
+            width: double.infinity,
+            height: double.infinity,
+            child: Row(
+              // main => X
+              // cross => Y
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      // foreground => text color
+                      foregroundColor: Colors.white,
+                      backgroundColor: Colors.amberAccent),
+                  onPressed: () {
+                    setState(() {
+                      buttonName = 'Pressed';
+                    });
+                  },
+                  child: Text(buttonName),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      buttonName = 'Pressed';
+                    });
+                  },
+                  child: Text(buttonName),
+                )
+              ],
+            ),
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
