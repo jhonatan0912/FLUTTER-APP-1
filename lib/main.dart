@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 // main function is the first thing that run when we start the debugging process
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -19,63 +19,66 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // remove debug banner
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false, // remove debug banner
 
       // scaffold its like the canvas on javascript
       home: Scaffold(
         // navbar -> AppBar
         appBar: AppBar(
-          //Navbar title
-          title: const Text('Navbar title'),
+          title: const Text('Navbar title'), //Navbar title
         ),
         // Body
         body: Center(
-          child: SizedBox(
-            width: double.infinity,
-            height: double.infinity,
-            child: Row(
-              // main => X
-              // cross => Y
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      // foreground => text color
-                      foregroundColor: Colors.white,
-                      backgroundColor: Colors.amberAccent),
-                  onPressed: () {
-                    setState(() {
-                      buttonName = 'Pressed';
-                    });
-                  },
-                  child: Text(buttonName),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      buttonName = 'Pressed';
-                    });
-                  },
-                  child: Text(buttonName),
+          child: currentIndex == 0
+              ? Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  color: Colors.black, //background app color
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start, // main => X
+                    crossAxisAlignment: CrossAxisAlignment.center, // cross => Y
+                    children: [
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            foregroundColor:
+                                Colors.white, // foreground => text color
+                            backgroundColor: Colors.amberAccent),
+                        onPressed: () {
+                          setState(() {
+                            buttonName = 'Pressed';
+                          });
+                        },
+                        child: Text(buttonName),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            buttonName = 'Pressed';
+                          });
+                        },
+                        child: Text(buttonName),
+                      )
+                    ],
+                  ),
                 )
-              ],
-            ),
-          ),
+              // Image.asset(name)
+              // Image.file(file)
+              // Image.memory(bytes)
+              // Image.network(src)
+              : Image.network(
+                  'https://images4.alphacoders.com/127/1271728.jpg'),
         ),
         bottomNavigationBar: BottomNavigationBar(
-          // ignore: prefer_const_literals_to_create_immutables
-          items: [
-            const BottomNavigationBarItem(
+          items: const [
+            BottomNavigationBarItem(
               label: 'Home',
               icon: Icon(Icons.home),
             ),
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
               label: 'Settings',
               icon: Icon(Icons.settings),
             ),
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
                 label: 'Favorite',
                 icon: Icon(
                   Icons.favorite,
