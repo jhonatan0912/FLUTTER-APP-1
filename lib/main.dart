@@ -65,8 +65,7 @@ class _MyAppState extends State<MyApp> {
               // Image.file(file)
               // Image.memory(bytes)
               // Image.network(src)
-              : Image.network(
-                  'https://images4.alphacoders.com/127/1271728.jpg'),
+              : Image.asset('images/background.jpg'),
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: const [
